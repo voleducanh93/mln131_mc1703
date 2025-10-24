@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import IntroPage from "./pages/IntroPage";
+import LawStatePage from "./pages/LawStatePage";
 import QuizPage from "./pages/QuizPage";
 import ChatbotPage from "./pages/ChatbotPage";
 import CaseStudyPage from "./pages/CaseStudyPage";
@@ -18,6 +19,7 @@ function App() {
             <Routes>
               <Route path="/" element={<LandingPage />} />
               <Route path="/intro" element={<IntroPage />} />
+              <Route path="/lawstate" element={<LawStatePage />} />
               <Route path="/quiz" element={<QuizPage />} />
               <Route path="/chatbot" element={<ChatbotPage />} />
               <Route path="/ai-usage" element={<CaseStudyPage />} />
