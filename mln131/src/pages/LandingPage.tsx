@@ -10,13 +10,19 @@ const LandingPage: React.FC = () => {
 
   const handleStart = () => setShowIntro(true);
 
-  const handleNextStep = () => {
-    if (step < introSteps.length - 1) {
-      setStep(step + 1);
-    } else {
-      navigate("/intro");
-    }
-  };
+const handleNextStep = () => {
+  if (step < introSteps.length - 1) {
+    setStep(step + 1);
+  } else {
+    // 🟢 Cuộn trang lên đầu trước khi chuyển sang trang /intro
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+    navigate("/intro");
+  }
+};
+
 
   // ===== Nội dung đã chỉnh theo chủ đề "Dân chủ XHCN" =====
   const introSteps = [
