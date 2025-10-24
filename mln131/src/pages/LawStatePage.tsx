@@ -132,43 +132,72 @@ const LawStatePage: React.FC = () => {
         </motion.div>
       </section>
 
-      {/* III. Liên hệ thực tiễn */}
-      <section id="thuc-tien-nn" className="container mx-auto px-4 my-20">
-        <motion.div
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          <FaChartPie className="text-4xl text-[#6e7fdc] mx-auto mb-4" />
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-[#2a2e6e] mb-6">
-            III. Liên hệ thực tiễn hiện nay
-          </h2>
+      {/* III. Liên hệ thực tiễn hiện nay */}
+<section id="thuc-tien-nn" className="container mx-auto px-4 my-20">
+  <motion.div
+    variants={sectionVariants}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, amount: 0.5 }}
+  >
+    <FaChartPie className="text-4xl text-[#6e7fdc] mx-auto mb-4" />
+    <h2 className="text-3xl md:text-4xl font-bold text-center text-[#2a2e6e] mb-6">
+      III. Liên hệ thực tiễn hiện nay
+    </h2>
 
-          <div className="space-y-8 text-gray-700 max-w-3xl mx-auto bg-white/70 p-6 rounded-2xl shadow leading-relaxed">
-            <p>
-              <b>1️⃣ Pháp luật & quản lý xã hội:</b> Chính phủ đẩy mạnh chuyển đổi số – Cổng DVC Quốc gia, thủ tục hành chính online 100%, 
-              giảm cơ chế “xin – cho”, nâng cao tính minh bạch và trách nhiệm giải trình.
-            </p>
-            <p>
-              <b>2️⃣ Quyền lực nhà nước & dân chủ:</b> Luật Thực hiện Dân chủ ở cơ sở 2023 và Luật Đất Đai 2024 cho phép người dân trực tiếp 
-              góp ý, giám sát, phản biện chính sách – cụ thể hóa phương châm “Dân biết, dân bàn, dân làm, dân kiểm tra”.
-            </p>
-            <p>
-              <b>3️⃣ Phòng chống tham nhũng:</b> Các vụ án lớn như Vạn Thịnh Phát, Việt Á, FLC được xử lý nghiêm – thể hiện nguyên tắc 
-              “không có vùng cấm, không ngoại lệ”.
-            </p>
-            <p>
-              <b>4️⃣ Tổ chức bộ máy nhà nước:</b> Mô hình chính quyền đô thị tại TP.HCM, Hà Nội, Đà Nẵng giúp tinh giản bộ máy, tăng hiệu quả phục vụ nhân dân.
-            </p>
-          </div>
+    {/* 4 thẻ figure có caption – đảm bảo ảnh không “mất” */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* Dịch vụ công trực tuyến */}
+      <figure className="bg-white/70 p-4 rounded-2xl shadow">
+        <motion.img
+          src={anh10}
+          alt="Dịch vụ công trực tuyến, định danh điện tử"
+          className="rounded-xl shadow-md w-full"
+        />
+        <figcaption className="text-sm text-gray-600 mt-3">
+          Cổng DVC trực tuyến, định danh VNeID – thủ tục minh bạch, chống “xin – cho”.
+        </figcaption>
+      </figure>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
-            <motion.img src={anh10} alt="DVC Quốc gia" className="rounded-2xl shadow-xl border-4 border-white/70" />
-            <motion.img src={anh13} alt="Chính quyền đô thị" className="rounded-2xl shadow-xl border-4 border-white/70" />
-          </div>
-        </motion.div>
-      </section>
+      {/* Luật Thực hiện Dân chủ ở cơ sở */}
+      <figure className="bg-white/70 p-4 rounded-2xl shadow">
+        <motion.img
+          src={anh11}
+          alt="Luật Thực hiện Dân chủ ở cơ sở 2023"
+          className="rounded-xl shadow-md w-full"
+        />
+        <figcaption className="text-sm text-gray-600 mt-3">
+          Luật Thực hiện Dân chủ ở cơ sở 2023 – bắt buộc công khai ngân sách, dự án, quy hoạch.
+        </figcaption>
+      </figure>
+
+      {/* Luật Đất đai 2024 – lấy ý kiến toàn dân (ẢNH DỄ BỊ THIẾU) */}
+      <figure className="bg-white/70 p-4 rounded-2xl shadow">
+        <motion.img
+          src={anh12}
+          alt="Hội nghị triển khai Luật Đất đai 2024, lấy ý kiến toàn dân"
+          className="rounded-xl shadow-md w-full"
+        />
+        <figcaption className="text-sm text-gray-600 mt-3">
+          Luật Đất đai 2024 lấy ý kiến toàn dân, hơn 12 triệu góp ý trước khi thông qua.
+        </figcaption>
+      </figure>
+
+      {/* Mô hình chính quyền đô thị */}
+      <figure className="bg-white/70 p-4 rounded-2xl shadow">
+        <motion.img
+          src={anh13}
+          alt="Mô hình chính quyền đô thị"
+          className="rounded-xl shadow-md w-full"
+        />
+        <figcaption className="text-sm text-gray-600 mt-3">
+          Thí điểm chính quyền đô thị: tinh gọn tầng nấc, tăng tốc ra quyết định.
+        </figcaption>
+      </figure>
+    </div>
+  </motion.div>
+</section>
+
 
       {/* IV. Dẫn chứng */}
       <section id="dan-chung" className="container mx-auto px-4 my-20">
