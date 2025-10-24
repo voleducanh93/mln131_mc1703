@@ -6,27 +6,27 @@ const principles = [
   {
     icon: <Users className="w-10 h-10 text-green-600 mb-2" />,
     title: "Quyền lực thuộc về Nhân dân",
-    desc: "Theo tư tưởng Hồ Chí Minh, Nhân dân là chủ thể tối cao của quyền lực; Nhà nước chỉ là công cụ để Nhân dân thực hiện quyền làm chủ của mình.",
+    desc: "Trong chế độ dân chủ xã hội chủ nghĩa, Nhân dân là chủ thể tối cao của quyền lực; mọi cơ quan, tổ chức, cán bộ nhà nước đều phải phục vụ Nhân dân và chịu sự giám sát của Nhân dân.",
   },
   {
     icon: <Scale className="w-10 h-10 text-blue-600 mb-2" />,
     title: "Thượng tôn Hiến pháp và pháp luật",
-    desc: "Pháp luật giữ vị trí tối thượng trong quản lý xã hội; mọi tổ chức, cá nhân đều bình đẳng trước pháp luật – không ai được đứng trên pháp luật.",
+    desc: "Pháp luật là công cụ bảo đảm dân chủ và công bằng xã hội. Tất cả tổ chức, cá nhân đều bình đẳng trước pháp luật — không ai được đứng trên Hiến pháp và pháp luật.",
   },
   {
     icon: <Flag className="w-10 h-10 text-red-600 mb-2" />,
-    title: "Sự lãnh đạo của Đảng Cộng sản",
-    desc: "Đảng Cộng sản Việt Nam giữ vai trò lãnh đạo Nhà nước và xã hội, bảo đảm Nhà nước đi đúng định hướng xã hội chủ nghĩa, đồng thời chịu sự giám sát của Nhân dân.",
+    title: "Sự lãnh đạo của Đảng Cộng sản Việt Nam",
+    desc: "Đảng Cộng sản Việt Nam là lực lượng lãnh đạo Nhà nước và xã hội, bảo đảm định hướng xã hội chủ nghĩa trong mọi lĩnh vực; đồng thời chịu trách nhiệm trước Nhân dân và pháp luật về vai trò lãnh đạo của mình.",
   },
   {
     icon: <Gavel className="w-10 h-10 text-yellow-600 mb-2" />,
-    title: "Phân công và kiểm soát quyền lực",
-    desc: "Quyền lực nhà nước thống nhất nhưng có sự phân công, phối hợp và kiểm soát giữa lập pháp, hành pháp, tư pháp nhằm ngăn ngừa lạm quyền.",
+    title: "Phân công và kiểm soát quyền lực nhà nước",
+    desc: "Quyền lực nhà nước là thống nhất nhưng được phân công, phối hợp và kiểm soát giữa các cơ quan lập pháp, hành pháp, tư pháp — nhằm phòng ngừa lạm quyền, bảo đảm hiệu quả quản lý xã hội.",
   },
   {
     icon: <ShieldCheck className="w-10 h-10 text-purple-600 mb-2" />,
-    title: "Dân chủ gắn với kỷ cương",
-    desc: "Thực hiện dân chủ phải đi đôi với kỷ luật, kỷ cương; bảo đảm quyền con người, quyền công dân – hướng tới mục tiêu dân giàu, nước mạnh, dân chủ, công bằng, văn minh.",
+    title: "Dân chủ gắn với pháp chế và kỷ cương",
+    desc: "Dân chủ phải đi đôi với pháp luật và kỷ luật. Việc mở rộng quyền làm chủ của Nhân dân luôn gắn với việc giữ gìn trật tự, kỷ cương và đề cao trách nhiệm công dân trong xã hội.",
   },
 ];
 
@@ -44,7 +44,7 @@ const PrincipleSection: React.FC = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
       >
-        🌿 Nguyên lý cơ bản theo Tư tưởng Hồ Chí Minh
+        🌿 Nguyên lý cơ bản của Nhà nước pháp quyền XHCN Việt Nam
       </motion.h2>
 
       {/* Grid các nguyên lý */}
@@ -66,6 +66,20 @@ const PrincipleSection: React.FC = () => {
           </motion.div>
         ))}
       </div>
+
+      {/* Kết luận ngắn */}
+      <motion.div
+        className="mt-12 bg-blue-100/70 border border-blue-200 rounded-2xl shadow-md p-6 max-w-3xl mx-auto text-center"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <p className="text-base md:text-lg text-[#2a2e6e] font-medium italic leading-relaxed">
+          “Những nguyên lý trên thể hiện rõ bản chất của <b>Nhà nước pháp quyền xã hội chủ nghĩa Việt Nam</b> —
+          nơi quyền lực thuộc về Nhân dân, được thực hiện trong khuôn khổ pháp luật và dưới sự lãnh đạo của Đảng Cộng sản Việt Nam.”
+        </p>
+      </motion.div>
     </section>
   );
 };

@@ -6,11 +6,14 @@ import ReactMarkdown from "react-markdown";
 // ⚠️ Khuyến nghị: nên dùng biến môi trường để lưu API key
 const gemini = new GeminiClient("AIzaSyBOyExUS1i0kvI7jhV7MuYl1na1nLI4wNg");
 
+interface ChatMessage {
+  role: "user" | "bot";
+  text: string;
+}
+
 const VoiceChatbot: React.FC = () => {
   const [input, setInput] = useState("");
-  const [messages, setMessages] = useState<
-    { role: "user" | "bot"; text: string }[]
-  >([]);
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [speaking, setSpeaking] = useState(false);
   const [tab, setTab] = useState<"text" | "voice">("text");
   const [loading, setLoading] = useState(false);
@@ -18,7 +21,7 @@ const VoiceChatbot: React.FC = () => {
   const [copyText, setCopyText] = useState<string>("Copy");
   const utterRef = useRef<SpeechSynthesisUtterance | null>(null);
 
-  // Dừng nói nếu đang phát khi đổi tab
+  // Dừng nói khi chuyển tab hoặc đang phát
   const handleTabChange = (newTab: "text" | "voice") => {
     if (loading) return;
     if (typeof window !== "undefined" && "speechSynthesis" in window) {
@@ -31,7 +34,7 @@ const VoiceChatbot: React.FC = () => {
     setLoading(false);
   };
 
-  // Hàm nói
+  // Hàm đọc giọng nói
   const speak = (text: string) => {
     if (typeof window !== "undefined" && "speechSynthesis" in window) {
       window.speechSynthesis.cancel();
@@ -46,23 +49,23 @@ const VoiceChatbot: React.FC = () => {
     }
   };
 
-  // ========= PROMPT CẬP NHẬT THEO FILE MLN131.docx =========
-const baseGuidelines = `
-Bạn là **trợ lý học tập** cho sinh viên môn *Tư tưởng Hồ Chí Minh*,
-hỗ trợ bài học: **"Dân chủ Xã hội Chủ nghĩa tại Việt Nam: Từ Lý luận đến Thực tiễn"**.
+  // ========= PROMPT CHUẨN HÓA THEO FILE MLN131.docx =========
+  const baseGuidelines = `
+Bạn là **trợ lý học tập** cho sinh viên học phần *MLN131 – Chủ nghĩa xã hội khoa học*,
+hỗ trợ chương: **“Dân chủ xã hội chủ nghĩa tại Việt Nam: Từ lý luận đến thực tiễn.”**
 
 Tài liệu cơ sở: **Giáo trình MLN131 (Phương Nguyên & Quỳnh Quỳnh, 2025)** gồm các nội dung:
-1. **Bản chất cốt lõi:** “Dân là gốc, dân làm chủ” – quyền lực thuộc về nhân dân, dân chủ gắn với pháp luật, toàn diện trong kinh tế, chính trị, xã hội.
-2. **Lịch sử hình thành:** Từ dân chủ nhân dân sau Cách mạng Tháng Tám 1945 đến dân chủ xã hội chủ nghĩa sau thống nhất 1976.
-3. **Cách thức thực hành dân chủ:** Dân chủ đại diện (Quốc hội, HĐND) và dân chủ trực tiếp (người dân tham gia bàn, giám sát, phản biện qua quy chế dân chủ cơ sở, chuyển đổi số, Cổng DVC quốc gia...).
-4. **Kết luận:** Dân chủ XHCN là thành quả của cách mạng, phải gắn mở rộng dân chủ với tăng cường pháp chế, kỷ luật, trách nhiệm công dân.
+1. **Bản chất cốt lõi:** “Dân là gốc, dân làm chủ” – quyền lực thuộc về nhân dân, dân chủ gắn với pháp luật, toàn diện trong kinh tế, chính trị, xã hội.  
+2. **Lịch sử hình thành:** Từ dân chủ nhân dân sau Cách mạng Tháng Tám 1945 đến dân chủ xã hội chủ nghĩa sau thống nhất 1976.  
+3. **Cách thức thực hành:** Dân chủ đại diện (Quốc hội, HĐND) và dân chủ trực tiếp (người dân tham gia bàn, giám sát, phản biện qua quy chế dân chủ cơ sở, chuyển đổi số, Cổng DVC quốc gia...).  
+4. **Kết luận:** Dân chủ XHCN là thành quả của cách mạng, phải gắn mở rộng dân chủ với tăng cường pháp chế, kỷ luật, trách nhiệm công dân.  
 
 Nguyên tắc trả lời:
-- Trả lời **bằng tiếng Việt**, rõ ràng, dễ hiểu, không lan man.
-- Sử dụng **Markdown** trình bày gọn gàng, có tiêu đề, gạch đầu dòng, ví dụ thực tiễn.
-- Nếu câu hỏi nằm ngoài chủ đề **Dân chủ XHCN tại Việt Nam**, hãy nói ngắn: “Nội dung này nằm ngoài phạm vi bài học hiện tại.”
-- Khi có thể, nêu rõ phần nội dung tương ứng, ví dụ: “(Xem Mục 3 – Dân chủ được thực hành như thế nào, MLN131.docx)”.
-- Không bịa đặt, không trích dẫn sai.
+- Dùng **tiếng Việt**, rõ ràng, có trọng tâm.  
+- Trình bày bằng **Markdown** với tiêu đề, gạch đầu dòng, ví dụ thực tiễn.  
+- Nếu câu hỏi nằm ngoài chủ đề Dân chủ XHCN, hãy nói ngắn: “Nội dung này nằm ngoài phạm vi bài học hiện tại.”  
+- Khi có thể, nêu rõ phần trong giáo trình, ví dụ: “(Xem Mục 3 – Dân chủ được thực hành như thế nào, MLN131.docx)”.  
+- Không bịa đặt, không trích dẫn sai.  
 `;
 
   const textModeInstruction = `
@@ -78,15 +81,14 @@ Trình bày có cấu trúc như sau:
 - …
 
 ### Tham chiếu giáo trình
-- Chương 4, phần Dân chủ XHCN – Nhà nước pháp quyền.
+- Mục tương ứng trong MLN131.docx.
 `;
 
   const voiceModeInstruction = `
 Trả lời ngắn gọn, tự nhiên, thân thiện, như đang trò chuyện với sinh viên.
-Giới hạn khoảng 100–150 từ, có thể thêm 1 ví dụ thực tế gần gũi (như “ở địa phương”, “trong trường học”, “trên cổng dịch vụ công”...).
-Không nói tắt. Giữ tính chính xác học thuật.
-In đậm các từ khóa quan trọng như **dân chủ**, **pháp quyền**, **nhân dân**, **làm chủ**.
-Kết thúc bằng một câu khích lệ học tập ngắn, ví dụ: “Chúng ta cùng học để hiểu rõ hơn nền dân chủ của nhân dân nhé!”
+Giới hạn khoảng 100–150 từ, thêm ví dụ gần gũi (ở địa phương, trường học, trên Cổng DVC...).
+Giữ tính chính xác học thuật, **in đậm từ khóa quan trọng** như **dân chủ**, **pháp quyền**, **nhân dân**, **làm chủ**.
+Kết thúc bằng một câu khích lệ: “Chúng ta cùng học để hiểu rõ hơn nền dân chủ của nhân dân nhé!”
 `;
 
   // ========= GỬI CÂU HỎI =========
@@ -97,22 +99,11 @@ Kết thúc bằng một câu khích lệ học tập ngắn, ví dụ: “Chún
 
     try {
       let prompt = baseGuidelines;
+      prompt += tab === "text" ? textModeInstruction : voiceModeInstruction;
+      prompt += `
 
-      if (tab === "text") {
-        prompt += `
-${textModeInstruction}
-
-**Câu hỏi của sinh viên**:
-${input}
-`;
-      } else {
-        prompt += `
-${voiceModeInstruction}
-
-**Câu hỏi của sinh viên**:
-${input}
-`;
-      }
+**Câu hỏi của sinh viên:**
+${input}`;
 
       const response = await gemini.ask(prompt);
       setMessages((prev) => [...prev, { role: "bot", text: response }]);
@@ -141,34 +132,26 @@ ${input}
           Chatbot AI – Dân chủ Xã hội Chủ nghĩa 🇻🇳
         </h2>
         <p className="text-center text-gray-500 text-sm mb-4">
-          Trợ lý học tập dành cho bài <b>Dân chủ XHCN và Nhà nước pháp quyền XHCN</b>.<br />
+          Trợ lý học tập học phần <b>MLN131 – Chủ nghĩa xã hội khoa học</b>.<br />
           Giúp ôn tập, giải thích lý thuyết và liên hệ thực tiễn dễ hiểu.
         </p>
 
         {/* Tabs */}
         <div className="flex gap-4 mb-6 justify-center">
-          <button
-            className={`px-6 py-2 rounded-lg border font-semibold text-lg transition-all duration-200 ${
-              tab === "text"
-                ? "bg-blue-500 text-white shadow"
-                : "bg-white text-blue-500 border-blue-500 hover:bg-blue-50"
-            } ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
-            onClick={() => handleTabChange("text")}
-            disabled={loading}
-          >
-            Trả lời văn bản
-          </button>
-          <button
-            className={`px-6 py-2 rounded-lg border font-semibold text-lg transition-all duration-200 ${
-              tab === "voice"
-                ? "bg-blue-500 text-white shadow"
-                : "bg-white text-blue-500 border-blue-500 hover:bg-blue-50"
-            } ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
-            onClick={() => handleTabChange("voice")}
-            disabled={loading}
-          >
-            Trả lời giọng nói
-          </button>
+          {["text", "voice"].map((t) => (
+            <button
+              key={t}
+              className={`px-6 py-2 rounded-lg border font-semibold text-lg transition-all duration-200 ${
+                tab === t
+                  ? "bg-blue-500 text-white shadow"
+                  : "bg-white text-blue-500 border-blue-500 hover:bg-blue-50"
+              } ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
+              onClick={() => handleTabChange(t as "text" | "voice")}
+              disabled={loading}
+            >
+              {t === "text" ? "Trả lời văn bản" : "Trả lời giọng nói"}
+            </button>
+          ))}
         </div>
 
         {/* Khung hội thoại */}
@@ -177,7 +160,7 @@ ${input}
             <>
               {messages.length === 0 && (
                 <div className="text-gray-500 text-center mt-12 text-base select-none">
-                  Hãy hỏi bất kỳ điều gì về **Dân chủ Xã hội Chủ nghĩa**!
+                  Hãy hỏi bất kỳ điều gì về <b>Dân chủ Xã hội Chủ nghĩa</b>!
                 </div>
               )}
               {messages.map((msg, idx) => (
@@ -246,7 +229,7 @@ ${input}
           )}
         </div>
 
-        {/* Ô nhập và nút gửi */}
+        {/* Ô nhập */}
         <div className="flex items-center gap-3 mt-auto">
           <input
             className="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white text-base"
@@ -308,7 +291,6 @@ ${input}
                   </button>
                 </div>
               </div>
-
               <div className="prose prose-lg max-w-none leading-relaxed text-gray-700">
                 <ReactMarkdown>{modalText}</ReactMarkdown>
               </div>

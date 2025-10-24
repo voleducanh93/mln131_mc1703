@@ -5,34 +5,34 @@ import { ChevronDown } from "lucide-react";
 
 const aiApplications = [
   {
-    title: "Sinh bộ Quiz theo đề cương học phần",
+    title: "Tóm tắt nhanh học phần MLN131 – Chủ nghĩa xã hội khoa học",
     content:
-      "AI có thể tự động tạo 15–20 câu trắc nghiệm kèm gợi ý, đáp án và giải thích chi tiết, bao phủ toàn bộ chủ đề: cơ sở hình thành tư tưởng Hồ Chí Minh, độc lập dân tộc gắn liền CNXH, đại đoàn kết toàn dân tộc, xây dựng Đảng & Nhà nước, đạo đức cách mạng, và vận dụng thực tiễn hiện nay.",
+      "AI giúp sinh viên nắm tổng quan toàn học phần MLN131 – một trong ba bộ phận của chủ nghĩa Marx–Lenin, nghiên cứu quy luật hình thành, phát triển của hình thái kinh tế – xã hội cộng sản chủ nghĩa. Hệ thống có thể tự tạo bản tóm lược lý thuyết trọng tâm: giai cấp công nhân, cách mạng xã hội chủ nghĩa, vai trò nhà nước, dân chủ XHCN, và sứ mệnh lịch sử của giai cấp công nhân.",
   },
   {
-    title: "Chatbot hỏi–đáp giáo trình & văn kiện",
+    title: "Chatbot hỏi–đáp giáo trình Dân chủ Xã hội Chủ nghĩa",
     content:
-      "Chatbot giúp sinh viên tra cứu nhanh khái niệm, luận điểm và trích dẫn nổi bật (như 'cần, kiệm, liêm, chính, chí công vô tư', 'giặc nội xâm'). Có thể trả lời bằng văn bản hoặc giọng nói (Text-to-Speech) để tăng tính tương tác khi tự học.",
+      "Tích hợp nội dung từ tài liệu *MLN131.docx – Dân chủ XHCN tại Việt Nam: Từ lý luận đến thực tiễn*. Chatbot giải thích các khái niệm như **dân là gốc**, **dân làm chủ**, **dân chủ đại diện**, **dân chủ trực tiếp**, **pháp quyền**, và **kỷ luật – kỷ cương**, đồng thời có thể phản hồi bằng giọng nói để tăng tính tương tác học tập.",
   },
   {
-    title: "Tóm tắt & bản đồ khái niệm chương mục",
+    title: "Sinh bộ câu hỏi trắc nghiệm và quiz tự động",
     content:
-      "AI hỗ trợ tóm tắt nhanh từng chương, tạo 'mind map' thể hiện mối quan hệ giữa các luận điểm — ví dụ: từ mục tiêu độc lập dân tộc gắn CNXH đến phương thức thực hiện qua đại đoàn kết, xây dựng Đảng trong sạch, Nhà nước của dân, do dân, vì dân.",
+      "AI dựa theo đề cương môn MLN131 và phần Dân chủ XHCN để sinh bộ 15–20 câu hỏi trắc nghiệm bao quát nội dung: lịch sử dân chủ, đặc trưng bản chất, hình thức thực hành và liên hệ thực tiễn. Mỗi câu hỏi đi kèm giải thích, dẫn chiếu phần nội dung trong giáo trình, giúp sinh viên tự đánh giá mức độ hiểu bài.",
   },
   {
-    title: "Phân tích đạo đức cách mạng & tự rèn luyện",
+    title: "Phân tích lý luận và liên hệ thực tiễn Việt Nam",
     content:
-      "Tạo bảng checklist giúp sinh viên tự đánh giá theo các phẩm chất: cần – kiệm – liêm – chính – chí công vô tư; đồng thời gợi ý tình huống thực tế để rèn luyện tư duy phản biện và liên hệ bản thân.",
+      "AI gợi ý các ví dụ về **dân chủ gắn pháp luật** và **nhà nước pháp quyền XHCN**: phòng chống tham nhũng, lấy ý kiến nhân dân về Luật Đất đai, quy chế dân chủ ở cơ sở, chuyển đổi số và cổng dịch vụ công. Qua đó, sinh viên hiểu rõ cách vận dụng chủ nghĩa xã hội khoa học vào thực tiễn đổi mới đất nước.",
   },
   {
-    title: "Vận dụng vào thực tiễn hiện nay",
+    title: "Tạo bản đồ khái niệm (Mind Map) tư tưởng xã hội chủ nghĩa",
     content:
-      "AI gợi ý các tình huống học thuật và xã hội như phòng, chống tham nhũng, nêu gương cán bộ, phát huy dân chủ, đoàn kết quốc tế… giúp người học vận dụng phương pháp tư duy Hồ Chí Minh trong bối cảnh đổi mới.",
+      "AI có thể trực quan hóa mối quan hệ giữa các luận điểm: từ **mục tiêu độc lập dân tộc gắn CNXH** đến **phương thức thực hiện qua dân chủ, nhà nước pháp quyền, và vai trò giai cấp công nhân**. Mind map giúp người học hình dung logic giữa lý luận – thực tiễn.",
   },
   {
-    title: "Cá nhân hóa lộ trình ôn tập",
+    title: "Cá nhân hóa lộ trình học & ôn tập MLN131",
     content:
-      "Theo dõi kết quả làm quiz và mức độ hiểu để đề xuất flashcards, tài liệu đọc bổ sung, và phần trọng tâm từng mục (Đảng, Nhà nước pháp quyền, dân chủ XHCN) – giúp sinh viên ôn thi hiệu quả hơn.",
+      "AI theo dõi tiến độ học 100 giờ (bao gồm 22.5 giờ trên lớp và 76.5 giờ tự học) để đề xuất bài ôn tập phù hợp. Sinh viên có thể chọn chủ đề (ví dụ: 'Nhà nước pháp quyền', 'Dân chủ XHCN', 'Sứ mệnh giai cấp công nhân') để hệ thống tự sinh flashcard, quiz và câu hỏi phản biện tương ứng.",
   },
 ];
 
@@ -47,7 +47,7 @@ const ExampleAccordion: React.FC = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
       >
-        Ứng dụng AI trong môn <br className="sm:hidden" /> Tư tưởng Hồ Chí Minh
+        Ứng dụng AI trong học phần MLN131 – Chủ nghĩa xã hội khoa học
       </motion.h2>
 
       <motion.p
@@ -57,7 +57,7 @@ const ExampleAccordion: React.FC = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.7, delay: 0.2 }}
       >
-        *Tăng cường tương tác, tự học và vận dụng thực tiễn qua công nghệ AI.*
+        *Tăng cường tự học, tương tác và hiểu sâu lý luận – thực tiễn qua công nghệ AI.*
       </motion.p>
 
       {/* Accordion */}

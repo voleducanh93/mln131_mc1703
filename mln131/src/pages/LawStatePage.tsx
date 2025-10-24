@@ -220,25 +220,6 @@ const LawStatePage: React.FC = () => {
         </motion.div>
       </section>
 
-      {/* 💬 V. Câu hỏi tương tác */}
-      <section id="cau-hoi" className="container mx-auto px-4 my-20 text-center">
-        <motion.div
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-[#2a2e6e] mb-6">💬 Câu hỏi tương tác gợi mở</h2>
-          <ul className="text-gray-700 max-w-3xl mx-auto bg-white/70 p-6 rounded-2xl shadow text-left space-y-4 leading-relaxed">
-            <li>1️⃣ Biểu hiện cụ thể nào trong đời sống chứng minh Việt Nam là “Nhà nước của dân, do dân, vì dân”?</li>
-            <li>2️⃣ Theo bạn, xử lý nghiêm các vụ tham nhũng có phản ánh nguyên tắc thượng tôn pháp luật không? Vì sao?</li>
-            <li>3️⃣ Việc người dân có thể đăng ký thủ tục hành chính trực tuyến thể hiện nội dung nào của Nhà nước pháp quyền?</li>
-            <li>4️⃣ Mạng xã hội có góp phần thúc đẩy dân chủ và giám sát xã hội không?</li>
-            <li>5️⃣ Trong quá trình hội nhập quốc tế, Việt Nam cần chú trọng điều gì để vừa giữ bản chất XHCN, vừa đảm bảo nguyên tắc pháp quyền?</li>
-          </ul>
-        </motion.div>
-      </section>
-
       {/* VI. Kết luận */}
       <section id="ket-luan-nn" className="container mx-auto px-4 my-20">
         <motion.div

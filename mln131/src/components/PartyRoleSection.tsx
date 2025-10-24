@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaStar, FaCogs, FaSitemap, FaHandshake, FaUsers } from "react-icons/fa";
+import { FaStar, FaCogs, FaSitemap, FaHandshake, FaUsers, FaFlag } from "react-icons/fa";
 
 const PartyRoleSection: React.FC = () => {
   const containerVariants = {
@@ -26,6 +26,7 @@ const PartyRoleSection: React.FC = () => {
       viewport={{ once: true, amount: 0.3 }}
       variants={containerVariants}
     >
+      {/* Tiêu đề */}
       <motion.h2
         className="text-3xl md:text-4xl font-extrabold text-[#2a2e6e] text-center mb-10"
         variants={itemVariants}
@@ -34,10 +35,22 @@ const PartyRoleSection: React.FC = () => {
         Vai trò lãnh đạo của Đảng Cộng sản Việt Nam
       </motion.h2>
 
+      {/* Giới thiệu */}
+      <motion.p
+        className="text-lg md:text-xl text-gray-700 mb-10 text-center max-w-3xl mx-auto leading-relaxed"
+        variants={itemVariants}
+      >
+        Trong học phần <b>MLN131 – Chủ nghĩa xã hội khoa học</b>, vai trò lãnh đạo của Đảng Cộng sản Việt Nam
+        được xem là <b>nhân tố quyết định bản chất và sức sống của chế độ dân chủ XHCN</b>.
+        Đảng là lực lượng duy nhất lãnh đạo Nhà nước và xã hội, bảo đảm con đường đi lên chủ nghĩa xã hội đúng đắn, vì hạnh phúc của Nhân dân.
+      </motion.p>
+
+      {/* Nội dung */}
       <motion.ul
         className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto"
         variants={containerVariants}
       >
+        {/* 1. Nhân tố lãnh đạo quyết định */}
         <motion.li
           className="bg-red-50 p-6 rounded-2xl shadow-lg border-2 border-red-300 hover:shadow-xl transition-transform hover:-translate-y-1"
           variants={itemVariants}
@@ -47,25 +60,29 @@ const PartyRoleSection: React.FC = () => {
             Nhân tố lãnh đạo quyết định
           </div>
           <p className="text-gray-700 leading-relaxed">
-            Đảng Cộng sản Việt Nam là lực lượng chính trị duy nhất lãnh đạo Nhà nước và xã hội,
-            bảo đảm định hướng xã hội chủ nghĩa cho toàn bộ sự nghiệp cách mạng Việt Nam.
+            <b>Đảng Cộng sản Việt Nam</b> là lực lượng chính trị duy nhất lãnh đạo Nhà nước và xã hội,
+            giữ vai trò hạt nhân trong hệ thống chính trị, định hướng toàn bộ sự nghiệp cách mạng theo con đường xã hội chủ nghĩa.
           </p>
         </motion.li>
 
+        {/* 2. Xây dựng và chỉnh đốn Đảng */}
         <motion.li
           className="bg-red-50 p-6 rounded-2xl shadow-lg border-2 border-red-300 hover:shadow-xl transition-transform hover:-translate-y-1"
           variants={itemVariants}
         >
           <div className="flex items-center text-red-800 text-xl font-bold mb-3">
             <FaCogs className="mr-3 text-2xl" />
-            Xây dựng và Chỉnh đốn Đảng
+            Xây dựng và chỉnh đốn Đảng
           </div>
           <p className="text-gray-700 leading-relaxed">
-            Đảng phải thường xuyên tự đổi mới, tự chỉnh đốn; nâng cao năng lực lãnh đạo, sức chiến đấu,
-            giữ vững đạo đức cách mạng, chống quan liêu, tham nhũng, giữ Đảng thật sự trong sạch, vững mạnh.
+            Đảng phải thường xuyên <b>tự đổi mới, tự chỉnh đốn</b>;
+            nâng cao năng lực lãnh đạo và sức chiến đấu;
+            kiên quyết chống <b>chủ nghĩa cá nhân, quan liêu, tham nhũng, suy thoái tư tưởng</b>,
+            để giữ Đảng thật sự <b>trong sạch, vững mạnh</b>.
           </p>
         </motion.li>
 
+        {/* 3. Đổi mới phương thức lãnh đạo */}
         <motion.li
           className="bg-red-50 p-6 rounded-2xl shadow-lg border-2 border-red-300 hover:shadow-xl transition-transform hover:-translate-y-1"
           variants={itemVariants}
@@ -75,11 +92,13 @@ const PartyRoleSection: React.FC = () => {
             Đổi mới phương thức lãnh đạo
           </div>
           <p className="text-gray-700 leading-relaxed">
-            Đảng lãnh đạo bằng Cương lĩnh, chủ trương, đường lối; tôn trọng nguyên tắc pháp quyền,
-            không bao biện làm thay Nhà nước; phát huy vai trò của Mặt trận Tổ quốc và các đoàn thể chính trị – xã hội.
+            Đảng lãnh đạo bằng <b>Cương lĩnh, chủ trương, đường lối</b>,
+            không bao biện làm thay Nhà nước; phát huy vai trò của <b>Mặt trận Tổ quốc</b> và các tổ chức chính trị – xã hội;
+            bảo đảm nguyên tắc tập trung dân chủ và sự thống nhất trong hành động.
           </p>
         </motion.li>
 
+        {/* 4. Gắn bó mật thiết với Nhân dân */}
         <motion.li
           className="bg-red-50 p-6 rounded-2xl shadow-lg border-2 border-red-300 hover:shadow-xl transition-transform hover:-translate-y-1"
           variants={itemVariants}
@@ -89,11 +108,40 @@ const PartyRoleSection: React.FC = () => {
             Gắn bó mật thiết với Nhân dân
           </div>
           <p className="text-gray-700 leading-relaxed">
-            Đảng là “đầy tớ trung thành của Nhân dân”, phải giữ mối quan hệ máu thịt với dân,
-            lắng nghe, tôn trọng và dựa vào Nhân dân để xây dựng, bảo vệ Tổ quốc và củng cố niềm tin của dân với Đảng.
+            Đảng luôn xác định <b>Nhân dân là gốc</b>;
+            mọi đường lối, chính sách phải xuất phát từ lợi ích, nguyện vọng chính đáng của Nhân dân.
+            Đảng là “<i>người lãnh đạo, đồng thời là người đầy tớ trung thành của Nhân dân</i>”.
+          </p>
+        </motion.li>
+
+        {/* 5. Lãnh đạo xây dựng Nhà nước pháp quyền và dân chủ XHCN */}
+        <motion.li
+          className="bg-red-50 p-6 rounded-2xl shadow-lg border-2 border-red-300 hover:shadow-xl transition-transform hover:-translate-y-1"
+          variants={itemVariants}
+        >
+          <div className="flex items-center text-red-800 text-xl font-bold mb-3">
+            <FaFlag className="mr-3 text-2xl" />
+            Lãnh đạo xây dựng Nhà nước pháp quyền
+          </div>
+          <p className="text-gray-700 leading-relaxed">
+            Đảng lãnh đạo Nhà nước trong việc xây dựng <b>Nhà nước pháp quyền XHCN</b>,
+            nơi quyền lực được kiểm soát chặt chẽ, pháp luật được thượng tôn,
+            và dân chủ được thực hành rộng rãi trong đời sống xã hội.
           </p>
         </motion.li>
       </motion.ul>
+
+      {/* Đoạn kết */}
+      <motion.div
+        className="mt-10 bg-red-100/70 border border-red-300 rounded-2xl shadow-md p-6 max-w-3xl mx-auto"
+        variants={itemVariants}
+      >
+        <p className="text-base md:text-lg text-[#2a2e6e] font-medium leading-relaxed italic">
+          “Sự lãnh đạo đúng đắn và sáng suốt của Đảng Cộng sản Việt Nam là nhân tố bảo đảm cho
+          dân chủ được thực hiện, pháp quyền được củng cố và con đường đi lên chủ nghĩa xã hội
+          của dân tộc ta vững bước, bền vững trong thời đại mới.”
+        </p>
+      </motion.div>
     </motion.section>
   );
 };

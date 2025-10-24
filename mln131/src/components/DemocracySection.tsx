@@ -6,6 +6,7 @@ import {
   FaUniversity,
   FaBuilding,
   FaUsers,
+  FaFlag,
 } from "react-icons/fa";
 
 const DemocracySection: React.FC = () => {
@@ -38,7 +39,7 @@ const DemocracySection: React.FC = () => {
         variants={itemVariants}
       >
         <FaVoteYea className="inline-block text-green-600 mr-3" />
-        Dân chủ xã hội chủ nghĩa
+        Dân chủ xã hội chủ nghĩa tại Việt Nam
       </motion.h2>
 
       {/* Giới thiệu */}
@@ -46,9 +47,9 @@ const DemocracySection: React.FC = () => {
         className="text-lg md:text-xl text-gray-700 mb-10 text-center max-w-3xl mx-auto leading-relaxed"
         variants={itemVariants}
       >
-        Bản chất của <b>dân chủ xã hội chủ nghĩa</b> là{" "}
-        <b>mọi quyền lực thuộc về Nhân dân</b>; do Nhân dân thực hiện và vì lợi ích
-        của Nhân dân lao động. Đây vừa là mục tiêu, vừa là động lực phát triển của chế độ.
+        <b>Dân chủ xã hội chủ nghĩa (XHCN)</b> là bản chất của chế độ XHCN ở Việt Nam —
+        <b> quyền lực thuộc về Nhân dân</b>, do Nhân dân thực hiện và vì lợi ích của Nhân dân.
+        Đây vừa là mục tiêu, vừa là động lực phát triển đất nước trong thời kỳ đổi mới.
       </motion.p>
 
       {/* Nội dung chính */}
@@ -56,6 +57,36 @@ const DemocracySection: React.FC = () => {
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
         variants={containerVariants}
       >
+        {/* 1. Bản chất và nền tảng */}
+        <motion.li
+          className="bg-green-50 p-6 rounded-2xl shadow-lg border-2 border-green-300 hover:shadow-xl hover:-translate-y-1 transition-transform"
+          variants={itemVariants}
+        >
+          <div className="flex items-center text-green-800 text-xl font-bold mb-3">
+            <FaBalanceScale className="mr-3 text-2xl" /> Bản chất & Nền tảng
+          </div>
+          <p className="text-gray-700 leading-relaxed">
+            Dân chủ XHCN gắn liền với <b>pháp luật, kỷ luật và kỷ cương</b>;
+            quyền dân chủ phải được thể chế hóa bằng Hiến pháp và pháp luật, được pháp luật bảo đảm thực thi.
+          </p>
+        </motion.li>
+
+        {/* 2. Lịch sử hình thành */}
+        <motion.li
+          className="bg-green-50 p-6 rounded-2xl shadow-lg border-2 border-green-300 hover:shadow-xl hover:-translate-y-1 transition-transform"
+          variants={itemVariants}
+        >
+          <div className="flex items-center text-green-800 text-xl font-bold mb-3">
+            <FaUniversity className="mr-3 text-2xl" /> Lịch sử hình thành
+          </div>
+          <p className="text-gray-700 leading-relaxed">
+            Từ <b>dân chủ nhân dân</b> sau Cách mạng Tháng Tám năm 1945
+            đến <b>dân chủ xã hội chủ nghĩa</b> sau năm 1976 khi đất nước thống nhất —
+            thể hiện bước phát triển về nhận thức và thể chế của chế độ mới.
+          </p>
+        </motion.li>
+
+        {/* 3. Chính trị */}
         <motion.li
           className="bg-green-50 p-6 rounded-2xl shadow-lg border-2 border-green-300 hover:shadow-xl hover:-translate-y-1 transition-transform"
           variants={itemVariants}
@@ -64,11 +95,13 @@ const DemocracySection: React.FC = () => {
             <FaBuilding className="mr-3 text-2xl" /> Chính trị
           </div>
           <p className="text-gray-700 leading-relaxed">
-            Nhân dân có quyền <b>bầu cử, ứng cử</b> và <b>tham gia quản lý Nhà nước, xã hội</b>;
-            mọi quyền lực Nhà nước đều thuộc về Nhân dân.
+            Nhân dân thực hiện quyền làm chủ thông qua <b>bầu cử, ứng cử</b>,
+            <b> giám sát cơ quan nhà nước</b> và <b>phản biện xã hội</b>;
+            Quốc hội và HĐND là cơ quan đại diện cao nhất của Nhân dân.
           </p>
         </motion.li>
 
+        {/* 4. Kinh tế */}
         <motion.li
           className="bg-green-50 p-6 rounded-2xl shadow-lg border-2 border-green-300 hover:shadow-xl hover:-translate-y-1 transition-transform"
           variants={itemVariants}
@@ -77,24 +110,12 @@ const DemocracySection: React.FC = () => {
             <FaBalanceScale className="mr-3 text-2xl" /> Kinh tế
           </div>
           <p className="text-gray-700 leading-relaxed">
-            Bảo đảm <b>quyền lao động, quyền sở hữu, quyền hưởng thụ thành quả</b>;
-            gắn dân chủ với <b>công bằng xã hội</b> trong phân phối.
+            Bảo đảm <b>quyền tự do kinh doanh hợp pháp</b>, gắn dân chủ với <b>công bằng xã hội</b>;
+            Nhà nước điều tiết kinh tế bằng chính sách, thuế và an sinh xã hội để hạn chế phân hóa giàu nghèo.
           </p>
         </motion.li>
 
-        <motion.li
-          className="bg-green-50 p-6 rounded-2xl shadow-lg border-2 border-green-300 hover:shadow-xl hover:-translate-y-1 transition-transform"
-          variants={itemVariants}
-        >
-          <div className="flex items-center text-green-800 text-xl font-bold mb-3">
-            <FaUniversity className="mr-3 text-2xl" /> Văn hóa – Xã hội
-          </div>
-          <p className="text-gray-700 leading-relaxed">
-            Mọi công dân có quyền <b>học tập, sáng tạo, thụ hưởng giá trị văn hóa</b>,
-            được phát triển toàn diện cả về vật chất lẫn tinh thần.
-          </p>
-        </motion.li>
-
+        {/* 5. Hình thức thực hiện */}
         <motion.li
           className="bg-green-50 p-6 rounded-2xl shadow-lg border-2 border-green-300 hover:shadow-xl hover:-translate-y-1 transition-transform"
           variants={itemVariants}
@@ -103,35 +124,38 @@ const DemocracySection: React.FC = () => {
             <FaUsers className="mr-3 text-2xl" /> Hình thức thực hiện
           </div>
           <p className="text-gray-700 leading-relaxed">
-            Kết hợp <b>dân chủ đại diện</b> (thông qua Quốc hội, HĐND các cấp)
-            với <b>dân chủ trực tiếp</b> (trưng cầu ý dân, đối thoại, góp ý của Nhân dân).
+            Kết hợp <b>dân chủ đại diện</b> (qua cơ quan dân cử)
+            và <b>dân chủ trực tiếp</b> (người dân bàn, giám sát, phản biện, quyết định ở cơ sở),
+            theo phương châm <i>“Dân biết, dân bàn, dân làm, dân kiểm tra, dân giám sát, dân thụ hưởng”</i>.
           </p>
         </motion.li>
 
+        {/* 6. Liên hệ thực tiễn */}
         <motion.li
           className="bg-green-50 p-6 rounded-2xl shadow-lg border-2 border-green-300 hover:shadow-xl hover:-translate-y-1 transition-transform"
           variants={itemVariants}
         >
           <div className="flex items-center text-green-800 text-xl font-bold mb-3">
-            <FaVoteYea className="mr-3 text-2xl" /> Mục tiêu hướng tới
+            <FaFlag className="mr-3 text-2xl" /> Liên hệ thực tiễn
           </div>
           <p className="text-gray-700 leading-relaxed">
-            Xây dựng xã hội <b>dân giàu, nước mạnh, dân chủ, công bằng, văn minh</b>,
-            nơi mọi người được tôn trọng và phát triển bình đẳng.
+            Thực hiện dân chủ thông qua <b>chuyển đổi số, cổng dịch vụ công, trưng cầu ý dân</b>;
+            tăng cường minh bạch, phòng chống tham nhũng và củng cố niềm tin của Nhân dân vào Nhà nước pháp quyền.
           </p>
         </motion.li>
 
+        {/* 7. Tư tưởng Hồ Chí Minh */}
         <motion.li
           className="bg-green-50 p-6 rounded-2xl shadow-lg border-2 border-green-300 hover:shadow-xl hover:-translate-y-1 transition-transform"
           variants={itemVariants}
         >
           <div className="flex items-center text-green-800 text-xl font-bold mb-3">
-            <FaUniversity className="mr-3 text-2xl" /> Tư tưởng Hồ Chí Minh
+            <FaVoteYea className="mr-3 text-2xl" /> Tư tưởng Hồ Chí Minh
           </div>
           <p className="text-gray-700 leading-relaxed">
             Hồ Chí Minh khẳng định: <i>“Dân chủ là để dân mở miệng”</i> —
-            tức là dân phải thật sự được nói, được bàn, được làm và được kiểm tra
-            những việc liên quan đến lợi ích của mình.
+            thể hiện tinh thần <b>lấy dân làm gốc</b>, phát huy quyền và trách nhiệm làm chủ của Nhân dân
+            trong mọi lĩnh vực của đời sống xã hội.
           </p>
         </motion.li>
       </motion.ul>

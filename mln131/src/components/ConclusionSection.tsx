@@ -31,7 +31,7 @@ const ConclusionSection: React.FC = () => {
         variants={itemVariants}
       >
         <FaLightbulb className="inline-block text-purple-600 mr-3" />
-        Kết luận tổng hợp
+        Kết luận tổng hợp – Môn MLN131
       </motion.h2>
 
       <motion.ul
@@ -39,37 +39,42 @@ const ConclusionSection: React.FC = () => {
         variants={containerVariants}
       >
         <motion.li variants={itemVariants}>
-          <b>Độc lập dân tộc gắn liền với Chủ nghĩa xã hội</b> là mục tiêu chiến lược
-          xuyên suốt trong tư tưởng Hồ Chí Minh, vừa là lý tưởng, vừa là con đường phát triển của dân tộc.
+          <b>Chủ nghĩa xã hội khoa học</b> là một trong ba bộ phận cấu thành chủ nghĩa Marx–Lenin,
+          cung cấp cơ sở lý luận và phương pháp luận khoa học cho việc nhận thức, xây dựng và phát triển
+          xã hội mới – xã hội cộng sản chủ nghĩa.
         </motion.li>
 
         <motion.li variants={itemVariants}>
-          <b>Dân là gốc</b> — mọi chủ trương, chính sách phải xuất phát từ lợi ích và nguyện vọng của Nhân dân:
-          “<i>Việc gì có lợi cho dân thì hết sức làm, việc gì có hại cho dân thì hết sức tránh</i>”.
+          <b>Dân chủ xã hội chủ nghĩa</b> là bản chất của chế độ, vừa là mục tiêu,
+          vừa là động lực phát triển. Quyền lực thuộc về Nhân dân, được thực hiện thông qua
+          cả hai hình thức: <b>dân chủ đại diện</b> và <b>dân chủ trực tiếp</b>.
         </motion.li>
 
         <motion.li variants={itemVariants}>
-          <b>Đảng Cộng sản Việt Nam</b> là lực lượng lãnh đạo duy nhất, bảo đảm định hướng đúng đắn;
-          cần thường xuyên <b>xây dựng, chỉnh đốn Đảng</b> trong sạch, vững mạnh, gắn bó với Nhân dân.
+          <b>Dân là gốc</b> – Nhân dân là chủ thể của quyền lực nhà nước và là mục tiêu phục vụ cao nhất.
+          Dân chủ phải đi đôi với <b>pháp luật, kỷ luật, kỷ cương</b> để bảo đảm trật tự và công bằng xã hội.
         </motion.li>
 
         <motion.li variants={itemVariants}>
-          <b>Nhà nước pháp quyền xã hội chủ nghĩa</b> là <b>“Nhà nước của dân, do dân, vì dân”</b>,
-          lấy Hiến pháp và pháp luật làm nền tảng để thực hiện quyền làm chủ của Nhân dân.
+          <b>Nhà nước pháp quyền XHCN Việt Nam</b> là <b>“Nhà nước của dân, do dân, vì dân”</b>,
+          đặt Hiến pháp và pháp luật ở vị trí tối thượng, đảm bảo mọi quyền dân chủ của công dân được thực thi thực chất.
         </motion.li>
 
         <motion.li variants={itemVariants}>
-          <b>Đạo đức cách mạng</b> — cần, kiệm, liêm, chính, chí công vô tư — là gốc của người cán bộ;
-          phải kiên quyết đấu tranh chống <b>“giặc nội xâm”</b>: tham ô, lãng phí, quan liêu.
+          <b>Đảng Cộng sản Việt Nam</b> giữ vai trò lãnh đạo toàn diện, bảo đảm định hướng xã hội chủ nghĩa
+          trong mọi lĩnh vực. Cần thường xuyên <b>xây dựng, chỉnh đốn Đảng</b> để xứng đáng với niềm tin của Nhân dân.
         </motion.li>
 
         <motion.li variants={itemVariants}>
-          <b>Đại đoàn kết toàn dân tộc</b> là chiến lược lâu dài, nguồn sức mạnh to lớn quyết định mọi thắng lợi của cách mạng Việt Nam.
+          Trong thực tiễn hiện nay, việc mở rộng dân chủ phải gắn với <b>tăng cường pháp chế</b>,
+          đấu tranh chống tham nhũng, tiêu cực và thúc đẩy <b>chuyển đổi số</b> nhằm phát huy dân chủ
+          theo hướng hiện đại, minh bạch và hiệu quả.
         </motion.li>
 
         <motion.li variants={itemVariants}>
-          <b>Học đi đôi với hành</b>, lý luận gắn với thực tiễn; phát huy dân chủ, đổi mới sáng tạo
-          vì mục tiêu <b>“Dân giàu, nước mạnh, dân chủ, công bằng, văn minh”</b>.
+          Mục tiêu cuối cùng của chủ nghĩa xã hội khoa học và nền dân chủ XHCN Việt Nam là
+          xây dựng xã hội <b>“dân giàu, nước mạnh, dân chủ, công bằng, văn minh”</b>,
+          nơi con người được phát triển toàn diện và hạnh phúc.
         </motion.li>
       </motion.ul>
 
@@ -79,9 +84,9 @@ const ConclusionSection: React.FC = () => {
         variants={itemVariants}
       >
         <p className="text-base md:text-lg text-[#2a2e6e] font-medium leading-relaxed italic">
-          “Tư tưởng Hồ Chí Minh không chỉ là di sản quý báu của dân tộc Việt Nam,
-          mà còn là kim chỉ nam soi đường cho thế hệ trẻ hôm nay –  
-          trong học tập, rèn luyện và cống hiến vì Tổ quốc.”
+          “Học phần <b>MLN131 – Chủ nghĩa xã hội khoa học</b> giúp sinh viên hiểu sâu hơn nền tảng lý luận của
+          con đường đi lên chủ nghĩa xã hội ở Việt Nam, từ đó hình thành niềm tin, trách nhiệm và ý chí
+          cống hiến cho sự nghiệp xây dựng đất nước trong thời kỳ mới.”
         </p>
       </motion.div>
     </motion.section>
