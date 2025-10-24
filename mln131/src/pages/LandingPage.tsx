@@ -14,12 +14,16 @@ const handleNextStep = () => {
   if (step < introSteps.length - 1) {
     setStep(step + 1);
   } else {
-    // 🟢 Cuộn trang lên đầu trước khi chuyển sang trang /intro
+    // 🟢 Cuộn lên đầu trước khi sang trang mới
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
-    navigate("/intro");
+
+    // ⏱️ Đợi 100ms để hoàn tất cuộn rồi mới navigate
+    setTimeout(() => {
+      navigate("/intro");
+    }, 100);
   }
 };
 

@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
 import LandingPage from "./pages/LandingPage";
 import IntroPage from "./pages/IntroPage";
 import LawStatePage from "./pages/LawStatePage";
@@ -13,6 +14,7 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen w-full flex flex-col bg-[#f4f7ff]">
+        <ScrollToTop /> {/* 🟢 Tự động cuộn lên đầu khi route thay đổi */}
         <Header />
         <main className="flex-1 flex flex-col justify-center px-0 w-full">
           <div className="w-full flex-1 flex flex-col">
