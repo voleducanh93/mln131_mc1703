@@ -7,9 +7,10 @@ import {
   orderBy,
   onSnapshot,
   Timestamp,
+  deleteDoc,
+  doc,
 } from "firebase/firestore";
 import { motion, AnimatePresence } from "framer-motion";
-import QuestionItem from "./QuestionItem";
 
 const QAPage = () => {
   const [question, setQuestion] = useState("");
@@ -18,6 +19,7 @@ const QAPage = () => {
     { id: string; text: string; group: string; createdAt: Timestamp }[]
   >([]);
 
+  // 🟢 Lấy danh sách câu hỏi realtime từ Firestore
   useEffect(() => {
     const q = query(collection(db, "questions"), orderBy("createdAt", "desc"));
     const unsubscribe = onSnapshot(q, (snapshot) => {
@@ -33,6 +35,7 @@ const QAPage = () => {
     return () => unsubscribe();
   }, []);
 
+  // 🟢 Gửi câu hỏi mới
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (question.trim() && group.trim()) {
@@ -42,6 +45,18 @@ const QAPage = () => {
         createdAt: Timestamp.now(),
       });
       setQuestion("");
+    }
+  };
+
+  // 🟢 Xoá câu hỏi
+  const handleDelete = async (id: string) => {
+    const confirmDelete = window.confirm("Bạn có chắc muốn xoá câu hỏi này không?");
+    if (!confirmDelete) return;
+
+    try {
+      await deleteDoc(doc(db, "questions", id));
+    } catch (error) {
+      console.error("Lỗi khi xoá câu hỏi:", error);
     }
   };
 
@@ -85,7 +100,7 @@ const QAPage = () => {
           />
           <button
             type="submit"
-            className="bg-[#3a3f8f] text-white px-6 py-3 rounded-lg"
+            className="bg-[#3a3f8f] text-white px-6 py-3 rounded-lg hover:bg-[#2a2e6e] transition"
           >
             Gửi
           </button>
@@ -98,9 +113,42 @@ const QAPage = () => {
           )}
 
           <AnimatePresence>
-            {questions.map((q) => (
-              <QuestionItem key={q.id} question={q} />
-            ))}
+            {questions.map((q) => {
+              const date = q.createdAt?.toDate
+                ? q.createdAt.toDate().toLocaleString("vi-VN")
+                : "";
+
+              return (
+                <motion.div
+                  key={q.id}
+                  className="relative bg-white/90 backdrop-blur-md border border-gray-200 rounded-2xl p-5 mb-3 shadow-lg"
+                  layout
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <p className="text-gray-800 text-lg font-medium mb-1">
+                        {q.text}
+                      </p>
+                      <p className="text-sm text-gray-500">Nhóm: {q.group}</p>
+                      <p className="text-xs text-gray-400 mt-1">{date}</p>
+                    </div>
+
+                    {/* 🗑 Nút xoá */}
+                    <button
+                      onClick={() => handleDelete(q.id)}
+                      className="ml-3 bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-lg text-sm shadow transition"
+                      title="Xoá câu hỏi"
+                    >
+                      Xoá
+                    </button>
+                  </div>
+                </motion.div>
+              );
+            })}
           </AnimatePresence>
         </motion.div>
       </motion.div>
